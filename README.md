@@ -1,46 +1,42 @@
-📊 Calculateur de Moyennes (Interface Tkinter)
-Ce projet est une application graphique développée en Python permettant de saisir ses notes de BUT (Ressources et SAE), de calculer les moyennes par Unité d'Enseignement (UE), d'évaluer la validation de l'année selon les règles du jury, et d'afficher un graphique récapitulatif.
+Markdown
 
-🚀 Fonctionnalités
-Interface Graphique (GUI) : Basée sur tkinter et ttk, permettant une saisie simple et intuitive des notes pour chaque ressource et SAE (R101 à R115, SAE11 à SAE16).
+# Application de Saisie et Calcul des Notes (Tkinter)
 
-Calcul des Moyennes : Calcule automatiquement les moyennes pondérées pour 3 UE distinctes.
+Cette application graphique développée en Python permet de saisir des notes pour différentes ressources et SAE, de récupérer les coefficients depuis un fichier Excel (`coefficients.xlsx`), de calculer les moyennes par Unité d'Enseignement (UE), d'évaluer la validation selon les règles du jury, et d'afficher un graphique récapitulatif.
 
-Simulation de Jury : Vérifie si l'année est validée, compensée ou non validée selon les notes obtenues (règles des seuils à 10 et 8).
+## Prérequis
 
-Visualisation Graphique : Génère un graphique en barres avec matplotlib pour visualiser rapidement les moyennes obtenues par UE.
+Assurez-vous d'avoir installé Python ainsi que les bibliothèques nécessaires :
 
-🛠️ Prérequis
-Assurez-vous d'avoir Python installé sur votre machine, ainsi que la bibliothèque matplotlib (Tkinter est généralement inclus par défaut avec Python).
+```bash
+pip install openpyxl matplotlib
 
-Pour installer matplotlib, exécutez la commande suivante dans votre terminal :
+Le fichier coefficients.xlsx doit être présent dans le même répertoire que le script principal pour que l'application puisse charger les coefficients.
+Fonctionnalités
 
-Bash
-pip install matplotlib
-⚙️ Utilisation
-Téléchargez ou copiez le code source du script (par exemple dans un fichier main.py).
+    Interface graphique (GUI) : Saisie intuitive des notes pour chaque matière et indication du semestre.
 
-Lancez le script depuis votre terminal ou votre EDI favori :
+    Extraction des coefficients : Lecture dynamique des coefficients depuis le fichier Excel selon le semestre spécifié.
 
-Bash
-python main.py
-Renseignez vos notes dans les champs correspondants de la fenêtre qui s'ouvre.
+    Calcul des moyennes : Pondération des notes par leurs coefficients respectifs pour chaque UE.
 
-Cliquez sur le bouton "Valider" pour :
+    Simulation de jury : Évaluation automatique de la validation du semestre/année en fonction des seuils (notes inférieures à 8 ou 10).
 
-Afficher le détail de vos moyennes dans la console.
+    Visualisation graphique : Affichage d'un graphique en barres des moyennes obtenues par UE.
 
-Obtenir le verdict du jury.
+⚠️ Bug Connu
 
-Ouvrir le graphique interactif des moyennes.
+    Attention : Un bug est actuellement répertorié concernant la gestion des semestres supérieurs à 3. L'application peut rencontrer des comportements inattendus lors du traitement des coefficients ou de l'affichage des résultats pour ces semestres. Une correction est prévue dans une prochaine mise à jour.
 
-📂 Structure du Code
-res / entries : Définition de la liste des matières et création dynamique des champs de saisie (Entry).
+Utilisation
 
-coefficients_ue1, ue2, ue3 : Tableaux de pondération associés à chaque ressource pour le calcul des moyennes.
+    Lancez le script Python :
+    Bash
 
-calcul(lst_notes, coefficients) : Fonction mathématique calculant la moyenne pondérée.
+    python nom_du_script.py
 
-jury(moyennes) : Logique conditionnelle simulant la décision d'un jury de validation d'année.
+    Remplissez les champs de notes correspondants.
 
-valider() : Récupération des données utilisateur, déclenchement des calculs, affichage des résultats et génération du diagramme matplotlib.
+    Indiquez le semestre concerné dans le champ prévu à cet effet.
+
+    Cliquez sur Valider pour afficher les résultats dans la console et ouvrir la fenêtre du graphique
